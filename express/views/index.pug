@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  hr
+  div= data
+  hr
+  ul
+    each f,i in ['사과', '배', '오렌지', '바나나']
+      li= (i + 1) + ':' + f
+  hr
+
+  ul
+    each f, i in data
+     li= (i+1) + ':' + f
+  #login-button
+  .post-image
+  span#highlight
+  p.hitten.full
+
+  hr
+
+  p
+    | 안녕하세여 푸그
+    br 
+    | 푸그를 이용해 여러줄 입력
+    | p tag
