@@ -1,9 +1,0 @@
-extends layout
-
-block content
-  h1= title
-
-  ul 
-  each book,i in data
-    li= (i + 1) + " : " + book.title + ", " + book.author
-  
