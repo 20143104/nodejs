@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  h1= title
+  #myDIV.header
+    h2= "할일 목록 정리"
+    input#myinput(type = 'text')
+    button(onclick = 'func()')= "추가"
+
+  ul#myUL
+
+  style.
+    .header{
+      background-color : green;
+      text-align : center;
+    }
+    h1{
+      text-align : center;
+    }
+    h2{
+      color : white;
+    }
+    input{
+      width : 50%;
+    }
+    ul{
+      text-align : center;
+      list-style : none;
+    }
+
+  script.
+    function func(){
+      var str = document.getElementById('myinput').value;
+      if(str == ""){
+        alert("입력해주세요!!!");
+        return ;
+      }
+      var ul = document.getElementById('myUL');
+      var li = document.createElement('li');
+      var button = document.createElement('button');
+      var X = document.createTextNode('X');
+      var content = document.createTextNode(str);
+      button.appendChild(X);
+      li.appendChild(content);
+      li.appendChild(button);
+      ul.appendChild(li);
+      li.addEventListener("click",
+          function() {
+              this.style.backgroundColor="gray";
+              this.style.textDecoration = "line-through";
+      });
+      button.addEventListener("click",
+          function() {
+              var p=this.parentElement;
+              var q=li;
+              p.removeChild(this);
+              q.remove(li);
+      });
+    }
